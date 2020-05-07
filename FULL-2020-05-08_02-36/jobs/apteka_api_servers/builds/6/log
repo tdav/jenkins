@@ -1,0 +1,133 @@
+Started by GitHub push by tdav
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/apteka_api_servers
+using credential github__tdav
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/tdav/Pharmacy.git # timeout=10
+Fetching upstream changes from https://github.com/tdav/Pharmacy.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/tdav/Pharmacy.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision c60d3387b481b67a5724a232251a96e8dbb3cfd3 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c60d3387b481b67a5724a232251a96e8dbb3cfd3 # timeout=10
+Commit message: "1"
+ > git rev-list --no-walk f7bd3f596626475533f86d13c2d7f6751d84b4f5 # timeout=10
+[apteka_api_servers] $ /bin/sh -xe /tmp/jenkins490099427699775985.sh
++ ls
+Convert
+dbname.bak
+Documents
+GFSystem.sln
+install cloud.txt
+MessageSender
+OrderDelivery
+order_filter
+README.md
+Sql
+test_json
+UniPos
+UniPos.Core
+UniPos.Models
+UniPos.Repository
+UniPos.Test
+UniPos.Utils
+zakaz.json
++ pwd
+/var/lib/jenkins/workspace/apteka_api_servers
++ cd UniPos
++ systemctl stop wa_unipos
++ dotnet publish -c Release /p:PublishDir=/var/www/publish_uni
+Microsoft (R) Build Engine version 16.5.0+d4cbfca49 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 79.61 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos/UniPos.csproj.
+  Restore completed in 4 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Utils/UniPos.Utils.csproj.
+  Restore completed in 0.79 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Repository/UniPos.Repository.csproj.
+  Restore completed in 2.15 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Models/UniPos.Models.csproj.
+  Restore completed in 5.68 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Core/UniPos.Core.csproj.
+  UniPos.Models -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Models/bin/Release/netcoreapp3.1/UniPos.Models.dll
+  UniPos.Repository -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Repository/bin/Release/netcoreapp3.1/UniPos.Repository.dll
+  UniPos.Core -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Core/bin/Release/netcoreapp3.1/UniPos.Core.dll
+  UniPos.Utils -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Utils/bin/Release/netcoreapp3.1/UniPos.Utils.dll
+  UniPos -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos/bin/Release/netcoreapp3.1/unipos.dll
+  UniPos -> /var/www/publish_uni/
++ dotnet ef migrations script --idempotent --output /var/www/publish_uni/EFSQLScripts/UniPos.Models.MyDbContext.sql --context UniPos.Models.MyDbContext
+Build started...
+Build succeeded.
++ systemctl start wa_unipos
++ systemctl status wa_unipos
+● wa_unipos.service - Web App Pharmacy - UniPos
+   Loaded: loaded (/etc/systemd/system/wa_unipos.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-05-08 01:50:25 +05; 13ms ago
+ Main PID: 6231 (systemd)
+    Tasks: 0
+   Memory: 0B
+   CGroup: /system.slice/wa_unipos.service
+           └─6231 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+
+May 08 01:50:25 pharmacy.local systemd[1]: Started Web App Pharmacy - UniPos.
++ cd ..
++ cd MessageSender
++ systemctl stop wa_message
++ dotnet publish -c Release /p:PublishDir=/var/www/publish_mes
+Microsoft (R) Build Engine version 16.5.0+d4cbfca49 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 125.96 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Utils/UniPos.Utils.csproj.
+  Restore completed in 10.45 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Repository/UniPos.Repository.csproj.
+  Restore completed in 3.53 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Models/UniPos.Models.csproj.
+  Restore completed in 2.47 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Core/UniPos.Core.csproj.
+  Restore completed in 3.43 ms for /var/lib/jenkins/workspace/apteka_api_servers/MessageSender/Message.csproj.
+  UniPos.Models -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Models/bin/Release/netcoreapp3.1/UniPos.Models.dll
+  UniPos.Repository -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Repository/bin/Release/netcoreapp3.1/UniPos.Repository.dll
+  UniPos.Core -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Core/bin/Release/netcoreapp3.1/UniPos.Core.dll
+  UniPos.Utils -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Utils/bin/Release/netcoreapp3.1/UniPos.Utils.dll
+  Message -> /var/lib/jenkins/workspace/apteka_api_servers/MessageSender/bin/Release/netcoreapp3.1/message.dll
+  Message -> /var/www/publish_mes/
++ systemctl start wa_message
++ systemctl status wa_message
+● wa_message.service - Web App Pharmacy - Message
+   Loaded: loaded (/etc/systemd/system/wa_message.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-05-08 01:50:43 +05; 14ms ago
+ Main PID: 6321 (systemd)
+    Tasks: 0
+   Memory: 0B
+   CGroup: /system.slice/wa_message.service
+           └─6321 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+
+May 08 01:50:43 pharmacy.local systemd[1]: Started Web App Pharmacy - Message.
++ cd ..
++ cd OrderDelivery
++ systemctl stop wa_delivery
++ dotnet publish -c Release /p:PublishDir=/var/www/publish_delivery
+Microsoft (R) Build Engine version 16.5.0+d4cbfca49 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Restore completed in 209.76 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Utils/UniPos.Utils.csproj.
+  Restore completed in 44.7 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Repository/UniPos.Repository.csproj.
+  Restore completed in 2.78 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Models/UniPos.Models.csproj.
+  Restore completed in 2.6 ms for /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Core/UniPos.Core.csproj.
+  Restore completed in 9.24 ms for /var/lib/jenkins/workspace/apteka_api_servers/OrderDelivery/Delivery.csproj.
+  UniPos.Models -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Models/bin/Release/netcoreapp3.1/UniPos.Models.dll
+  UniPos.Repository -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Repository/bin/Release/netcoreapp3.1/UniPos.Repository.dll
+  UniPos.Core -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Core/bin/Release/netcoreapp3.1/UniPos.Core.dll
+  UniPos.Utils -> /var/lib/jenkins/workspace/apteka_api_servers/UniPos.Utils/bin/Release/netcoreapp3.1/UniPos.Utils.dll
+  Delivery -> /var/lib/jenkins/workspace/apteka_api_servers/OrderDelivery/bin/Release/netcoreapp3.1/delivery.dll
+  Delivery -> /var/www/publish_delivery/
++ systemctl start wa_delivery
++ systemctl status wa_delivery
+● wa_delivery.service - Web App Pharmacy - Delivery
+   Loaded: loaded (/etc/systemd/system/wa_delivery.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-05-08 01:51:04 +05; 12ms ago
+ Main PID: 6454 (dotnet)
+    Tasks: 0
+   Memory: 0B
+   CGroup: /system.slice/wa_delivery.service
+
+May 08 01:51:04 pharmacy.local systemd[1]: Started Web App Pharmacy - Delivery.
++ cd ..
+Finished: SUCCESS

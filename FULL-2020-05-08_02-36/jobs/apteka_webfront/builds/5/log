@@ -1,0 +1,43 @@
+Started by user [8mha:////4K7isgi/Wyp5qOHKeDu9+gQCzxdK4KeXCgCvIlumAZvQAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/apteka_webfront
+using credential github__tdav
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/turopoff/front.git # timeout=10
+Fetching upstream changes from https://github.com/turopoff/front.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/turopoff/front.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 6040ef53bf461f9bfcd78e244a084ffc092a114d (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6040ef53bf461f9bfcd78e244a084ffc092a114d # timeout=10
+Commit message: "q"
+ > git rev-list --no-walk 6040ef53bf461f9bfcd78e244a084ffc092a114d # timeout=10
+[apteka_webfront] $ /bin/sh -xe /tmp/jenkins3437521633703606412.sh
++ ls
+babel.config.js
+package.json
+public
+README.md
+src
+vue.config.js
+yarn.lock
++ pwd
+/var/lib/jenkins/workspace/apteka_webfront
++ yarn
+yarn install v1.22.4
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@1.2.12: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.12" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@2.1.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning " > sass-loader@8.0.2" has unmet peer dependency "webpack@^4.36.0 || ^5.0.0".
+warning " > vuetify-loader@1.4.3" has unmet peer dependency "webpack@^4.0.0".
+Build was aborted
+Aborted by [8mha:////4K7isgi/Wyp5qOHKeDu9+gQCzxdK4KeXCgCvIlumAZvQAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Finished: ABORTED

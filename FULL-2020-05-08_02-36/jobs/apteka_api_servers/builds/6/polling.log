@@ -1,0 +1,12 @@
+Started on May 8, 2020 1:49:11 AM
+Started by event from 140.82.115.241 ⇒ http://185.183.243.244:8080/github-webhook/ on Fri May 08 01:49:08 UZT 2020
+Using strategy: Default
+[poll] Last Built Revision: Revision f7bd3f596626475533f86d13c2d7f6751d84b4f5 (refs/remotes/origin/master)
+using credential github__tdav
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git ls-remote -h https://github.com/tdav/Pharmacy.git # timeout=10
+Found 1 remote heads on https://github.com/tdav/Pharmacy.git
+[poll] Latest remote head revision on refs/heads/master is: c60d3387b481b67a5724a232251a96e8dbb3cfd3
+Done. Took 2.2 sec
+Changes found

@@ -1,0 +1,12 @@
+commit c60d3387b481b67a5724a232251a96e8dbb3cfd3
+tree c240447d2bb3149fd8cca979bb349e6c127a8ac8
+parent f7bd3f596626475533f86d13c2d7f6751d84b4f5
+author Tasibaev Davron <tdav@mail.ru> 2020-05-08 01:48:09 +0500
+committer Tasibaev Davron <tdav@mail.ru> 2020-05-08 01:48:09 +0500
+
+    1
+
+
+:100644 100644 a18fc6b9d8debc4609c21cbcc4509ff6fced3841 e31f01a1e5e6540b411c273345fdb4d30f678a28 M	MessageSender/Controllers/SmsController.cs
+:100644 100644 5b79de69a2612e6226096999626ddf519e4127af 660042d54a8df8f352b9af78efa6e363d1f2230a M	OrderDelivery/Controllers/UsersController.cs
+:100644 100644 2a349681f7d9d5d550c994e085e746d6246bf1dd d0ea5d839004f7c65fd5cf14c6a61e93a880ce7f M	UniPos/Controllers/UsersController.cs

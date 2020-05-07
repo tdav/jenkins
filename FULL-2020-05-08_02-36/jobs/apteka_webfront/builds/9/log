@@ -1,0 +1,83 @@
+Started by user [8mha:////4K7isgi/Wyp5qOHKeDu9+gQCzxdK4KeXCgCvIlumAZvQAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/apteka_webfront
+using credential github__tdav
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/turopoff/front.git # timeout=10
+Fetching upstream changes from https://github.com/turopoff/front.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/turopoff/front.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 6040ef53bf461f9bfcd78e244a084ffc092a114d (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 6040ef53bf461f9bfcd78e244a084ffc092a114d # timeout=10
+Commit message: "q"
+ > git rev-list --no-walk 6040ef53bf461f9bfcd78e244a084ffc092a114d # timeout=10
+[apteka_webfront] $ /bin/sh -xe /tmp/jenkins4252806675160875004.sh
++ ls
+babel.config.js
+dist
+node_modules
+package.json
+public
+README.md
+src
+vue.config.js
+yarn.lock
++ pwd
+/var/lib/jenkins/workspace/apteka_webfront
++ cp -r dist /var/www/html
++ yarn
+yarn install v1.22.4
+[1/4] Resolving packages...
+success Already up-to-date.
+Done in 1.55s.
++ yarn build
+yarn run v1.22.4
+$ vue-cli-service build
+
+-  Building for production...
+ WARNING  Compiled with 2 warnings12:19:57 AM
+
+ warning  
+
+asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  css/chunk-vendors.f240dcde.css (337 KiB)
+  js/chunk-vendors.4da13cec.js (460 KiB)
+
+ warning  
+
+entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  app (839 KiB)
+      css/chunk-vendors.f240dcde.css
+      js/chunk-vendors.4da13cec.js
+      css/app.275445d3.css
+      js/app.8cff0aae.js
+
+
+  File                                      Size             Gzipped
+
+  dist/js/chunk-vendors.4da13cec.js         460.18 KiB       139.95 KiB
+  dist/js/app.8cff0aae.js                   40.64 KiB        11.40 KiB
+  dist/service-worker.js                    1.04 KiB         0.61 KiB
+  dist/precache-manifest.129c075dba22ee7    0.76 KiB         0.33 KiB
+  92c63b49ba81f31db.js
+  dist/js/chunk-2d22d746.7ccd7881.js        0.46 KiB         0.32 KiB
+  dist/css/chunk-vendors.f240dcde.css       336.94 KiB       38.39 KiB
+  dist/css/app.275445d3.css                 0.90 KiB         0.46 KiB
+
+  Images and other types of assets omitted.
+
+ DONE  Build complete. The dist directory is ready to be deployed.
+ INFO  Check out deployment instructions at https://cli.vuejs.org/guide/deployment.html
+      
+Done in 97.26s.
++ rm -rf /var/www/html
++ cp -r dist /var/www/html
+Finished: SUCCESS
